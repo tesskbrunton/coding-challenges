@@ -1,19 +1,58 @@
-// This kata is from check py.checkio.org
+// Welcome.
 
-// You are given an array with positive numbers and a non-negative number N. You should find the N-th power of the element in the array with the index N. If N is outside of the array, then return -1. Don't forget that the first element has the index 0.
+// In this kata you are required to, given a string, replace every letter with its position in the alphabet.
 
-// Let's look at a few examples:
+// If anything in the text isn't a letter, ignore it and don't return it.
 
-//     array = [1, 2, 3, 4] and N = 2, then the result is 3^2 == 9;
-//     array = [1, 2, 3] and N = 3, but N is outside of the array, so the result is -1.
+// "a" = 1, "b" = 2, etc.
+// Example
 
-function index(array, n){
-   
-  if (n > array.length - 1){
-      return -1
-  }else {
-  let num = array[n] 
-  return Math.pow(num, n)
+// alphabetPosition("The sunset sets at twelve o' clock.")
+
+// Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" ( as a string )
+
+
+function alphabetPosition(text) {
+  const array = text.toLowerCase()
+                      .split('')
+  let newArray = []
+  const alphabet = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+    e: 5,
+    f: 6,
+    g: 7,
+    h: 8,
+    i: 9,
+    j: 10,
+    k: 11,
+    l: 12,
+    m: 13,
+    n: 14,
+    o: 15,
+    p: 16,
+    q: 17,
+    r: 18,
+    s: 19,
+    t: 20,
+    u: 21,
+    v: 22,
+    w: 23,
+    x: 24,
+    y: 25,
+    z: 26
+   }
+let alphabetArray = Object.keys(alphabet)
+
+for(let i = 0; i < array.length; i++){
+  const letter = array[i]
+  const alphabetNum = alphabet[letter]
+  if(alphabetArray.includes(letter)){
+      newArray.push(alphabetNum)
   }
-    }
+ }
+ return newArray.join(' ')
 
+}
