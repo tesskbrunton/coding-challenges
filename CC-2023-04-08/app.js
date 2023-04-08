@@ -1,38 +1,19 @@
-// Introduction
+// This kata is from check py.checkio.org
 
-// The wave (known as the Mexican wave in the English-speaking world outside North America) is an example of metachronal rhythm achieved in a packed stadium when successive groups of spectators briefly stand, yell, and raise their arms. Immediately upon stretching to full height, the spectator returns to the usual seated position.
+// You are given an array with positive numbers and a non-negative number N. You should find the N-th power of the element in the array with the index N. If N is outside of the array, then return -1. Don't forget that the first element has the index 0.
 
-// The result is a wave of standing spectators that travels through the crowd, even though individual spectators never move away from their seats. In many large arenas the crowd is seated in a contiguous circuit all the way around the sport field, and so the wave is able to travel continuously around the arena; in discontiguous seating arrangements, the wave can instead reflect back and forth through the crowd. When the gap in seating is narrow, the wave can sometimes pass through it. Usually only one wave crest will be present at any given time in an arena, although simultaneous, counter-rotating waves have been produced. (Source Wikipedia)
+// Let's look at a few examples:
 
-// Task
+//     array = [1, 2, 3, 4] and N = 2, then the result is 3^2 == 9;
+//     array = [1, 2, 3] and N = 3, but N is outside of the array, so the result is -1.
 
-// In this simple Kata your task is to create a function that turns a string into a Mexican Wave. You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up. 
-
-// Rules
-
-//  1.  The input string will always be lower case but maybe empty.
-
-//  2.  If the character in the string is whitespace then pass over it as if it was an empty seat
-
-// Example
-
-// wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
-
-
-function wave(str){
-    let letterArray = str.toLowerCase().split('')
-    let newArray = []
-    
-    for(let i = 0; i < letterArray.length; i++){
-        let letter = letterArray[i]
-        if (letter !== ' '){
-        let capLetter = letter.toUpperCase()
-        letterArray[i] = capLetter
-        let letterString = letterArray.join('')
-        newArray.push(letterString)
-        let lowerCaseLetter = letter.toLowerCase()
-        letterArray[i] = lowerCaseLetter
-        }   
+function index(array, n){
+   
+  if (n > array.length - 1){
+      return -1
+  }else {
+  let num = array[n] 
+  return Math.pow(num, n)
+  }
     }
-    return newArray
-    }
+
